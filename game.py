@@ -1,4 +1,5 @@
 import pygame,time,random
+from verifica import escala
 
 pygame.init()
 arquivo = open ("dados.txt","a")
@@ -8,7 +9,7 @@ arquivo.write(nome + " "+ gmail + " \n")
 arquivo.close()
 
 
-certa = pygame.mixer.music.load("assets/certa.wav")
+
 icone = pygame.image.load("assets/icone.png")
 pygame.display.set_icon(icone)
 pygame.display.set_caption("It's Raining Garbage")
@@ -54,6 +55,8 @@ def mostraperdeu():
 
 
 def jogo():
+    respostaerrada = pygame.mixer.Sound("assets/errado.wav")
+    respostacerta = pygame.mixer.Sound("assets/certa.wav")
     pygame.mixer.music.load("assets/fundomusica.mp3")
     pygame.mixer.music.play(-1) #música fica no loop
     lixeiraX = largura* 0.40
@@ -85,12 +88,9 @@ def jogo():
         
         display.fill(branco) #Função que muda a cor de fundo da tela
         display.blit(fundo, (0, 0)) #Função que muda imagem de fundo da tela
-        
         lixeiraX = lixeiraX + movimentoX #controla a lixeira dentro do display do game
-        if lixeiraX < 0:
-            lixeiraX = 0 
-        elif lixeiraX > 610:
-            lixeiraX = 610
+
+        lixeiraX = escala(lixeiraX)
 
         display.blit(escalaPersonagem, (lixeiraX, lixeiraY))
         
@@ -102,6 +102,7 @@ def jogo():
             velocidadesacolixo += float(0.3)
             sacolixoX = random.randrange(0, largura -150)
             lixosperdidos +=1
+            pygame.mixer.Sound.play(respostaerrada)
         #quando ele atravessa a tela ele cai de outra posição {FIM}
         
         #Analise de colisão para contagem
@@ -110,6 +111,7 @@ def jogo():
             if lixeiraX < sacolixoX and lixeiraX+100 > sacolixoX or sacolixoX+60 > lixeiraX and sacolixoX+60 < lixeiraX+100:
                 sacolixoY = -80
                 sacolixoX = random.randrange(0, largura -150)
+                pygame.mixer.Sound.play(respostacerta)
                 
                 sacospegados += 1
                 
