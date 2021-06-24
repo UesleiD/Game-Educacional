@@ -4,4 +4,6 @@ Aluno: Ueslei Silva Dalmina
 
 
 E-mail: ueshow.ut@gmail.com
-Game educacional: O jogo foi criado com o foco de ensinar crianças e adolescentes a juntar o lixo e não deixa-lo no chão, pois atualmente enfrentamos um problema sério de poluição então é importante educar nossos jovens para que no futuro possamos não nos preocupar com isso.
+
+
+Game educacional: O jogo foi criado com o foco para crianças e adolescentes, a não deixarem lixo no chão, pois atualmente vivemos um cenário crítico de poluição e a construção desse game pode ajudar com que os nossos jovens aprendam desde cedo a fazer o certo para que no futuro não possamos nos preocupar com isso
